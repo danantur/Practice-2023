@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <link rel="stylesheet" href="static/css/styles.css">
+    <style>
+      .text-center.border-bottom {
+        background: linear-gradient(0deg, rgba(255, 255, 255, .5), rgba(255, 255, 255, .5)), url(static/images/pattern.svg);
+      }
+
+      .text-center.border-bottom a {
+        width: fit-content;
+        margin: 0 auto;
+        background-color: white;
+        padding: 1rem 2rem;
+      }
+
+      .content {
+        background: linear-gradient(0deg, rgba(245, 132, 19, .5), rgba(245, 132, 19, .5)), url(static/images/pattern.svg);
+        background-size: 200px;
+      }
+    </style>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+  <div class="text-center border-bottom">
+    <a class="navbar-brand d-block" href="#">
+      <img src="/static/images/logo.svg" height="100" />
+    </a>
+  </div>
+  <nav class="navbar navbar-expand-sm navbar-dark p-3" id="headerNav">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mx-auto ">
+          <li class="nav-item">
+            <a class="nav-link mx-2 {% if request.path == "/" %}active{% endif %}" href="/">Главная</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2 {% if request.path == "/news" %}active{% endif %}" href="/news">Новости</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2 {% if request.path == "/students" %}active{% endif %}" href="/students">Для учеников</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2 {% if request.path == "/adults" %}active{% endif %}" href="/adults">Для родителей</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  </div>
+  <section class="content d-flex justify-content-center">
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+  </section>
+  <div class="container-fluid footer" style="background-color:#ffdebb;">
+
+    <button onclick="topFunction()" id="to-top" title="Go to top">▲</button>
+
+    <div class="row row-no-gutters">
+      <div class="col-xs-12 col-sm-6 col-md-3" >
+        <ul>
+          <li class="col-heading">Контакты</li>
+          <li>
+            <i class="fa fa-phone" aria-hidden="true"></i><a href="tel:+79215354605">+7 (921) 53-54-605</a>
+          </li>
+          <li>
+            <i class="fa fa-mobile" aria-hidden="true"></i><a href="sms:+79215354605">SMS Message</a>
+          </li>
+          <li>
+             <i class="fa fa-map-marker" aria-hidden="true"></i><a href="#">Ул. Кладостроительная, 35а</a>
+          </li> 
+          <li>
+             <i class="fa fa-envelope-square" aria-hidden="true"></i><a href="mailto:test@mail.com">Email Us</a>  
+          </li> 
+        </ul>
+      </div>     
+
+      <div class="col-xs-12 col-sm-6 col-md-3" >
+        <ul>
+          <li class="col-heading">Учащимся</li>
+          <li><a href="#">Электронный дневник</a></li>
+          <li><a href="#">Расписание</a></li>
+        </ul>
+      </div>      
+
+      <div class="col-xs-12 col-sm-6 col-md-3" >
+        <ul>
+          <li class="col-heading">Информация</li>
+          <li><a href="#">О нас</a></li>
+          <li><a href="#">Образовательная деятельность</a></li>
+          <li><a href="#">Библиотека</a></li>
+          <li><a href="#">Школьное партнёрство</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-xs-12 col-sm-6 col-md-3" >
+        <ul>
+          <li class="col-heading">Партнёры</li>
+          <li><a href="#">Год педагога и наставника</a></li>
+          <li><a href="#">Официальный информационный портал ЕГЭ</a></li>
+          <li><a href="#">Минпросвещения РФ</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="row row-no-gutters" id="bottom-footer" >
+      <div class="col-xs-12 col-md-5 text-center" >
+        <ul>
+          <li class="small">
+            © 2023. Муниципальное общеобразовательное учреждение «Средняя школа №35» </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("to-top").style.display = "block";
+    } else {
+      document.getElementById("to-top").style.display = "none";
+    }
+  }
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+  </script>
+  <script src="static/js/bootstrap.js"></script>
+</body>
+</html>
