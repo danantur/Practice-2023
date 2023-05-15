@@ -1,8 +1,19 @@
 {% extends "index.html" %}
 {% block title %}Главная{% endblock %}
 {% block content %}
-    <h2>Уважаемые учителя, родители и учащиеся!</h2>
-    <p>Мы рады Вас приветствовать на сайте нашей школы! На нашем сайте вы найдете много интересного - новости школы, информацию о событиях, узнаете о наших достижениях.</p>
+
+<script>
+    let carousels = document.getElementsByClassName("carousel");
+    for (let item of carousels) {
+        item.carousel();
+    }
+</script>
+
+<div class="container main-content">
+    <div class="offer">
+        <h2>Уважаемые учителя, родители и учащиеся!</h2>
+        <p>Мы рады Вас приветствовать на сайте нашей школы! <br>На нашем сайте вы найдете много интересного - новости школы, информацию о событиях, узнаете о наших достижениях.</p>
+    </div>
     <h3>О нас</h3>
     <p>Нашей школе — 85 лет.<br><br>
 
@@ -23,55 +34,69 @@
         
         Школа находится в центральном районе города, имеет благоприятное социально-культурное окружение и обеспечивает взаимодействие с различными учреждениями:<br>
 
-        
-        <ul>
-            <li>Учреждения дополнительного образования:
-            <ul>
-            <li>Школа искусств № 9 им. Алмазова.</li>
-            <li>Школа искусств № 1.</li>
-            <li>Городской центр внеклассной и воспитательной работы.</li>
-            </ul>
-            </li>
-            <li>Библиотеки:
-            <ul>
-            <li>Областная детской библиотекой им. Крылова.</li>
-            <li>Юношеская библиотекой.</li>
-            <li>Библиотека им. Лермонтова.</li>
-            <li>Фундаментальная библиотека ЯГПУ им. Ушинского.</li>
-            </ul>
-            </li>
-            <li>Спортивно-оздоровительные учреждения:
-            <ul>
-            <li>ДЮСШ.</li>
-            </ul>
-            </li>
-            <li>Учреждения культуры:
-            <ul>
-            <li>Ярославская филармония.</li>
-            <li>Театр им. Волкова;</li>
-            <li>ТЮЗ;</li>
-            <li>Кукольный театр.</li>
-            </ul>
-            </li>
-            <li>Учреждения медико-психологической помощи:
-            <ul>
-            <li>Городской центр псхихолого-медико-социального сопровождения.</li>
-            </ul>
-            </li>
-            <li>Медицинские учреждения:
-            <ul>
-            <li>Поликлиника № 1.</li>
-            <li>Поликлиника № 2.</li>
-            </ul>
-            </li>
-            <li>Учреждения отделов внутренних дел:
-            <ul>
-            <li>Кировский РОВД.</li>
-            <li>Инспекция по делам несовершеннолетних.</li>
-            <li>Опорный пункт охраны общественного порядка.</li>
-            <li>УМВД России по Ярославской области.</li>
-            </ul>
-            </li>
-            </ul>
-        </p>
+    <h3>Новости</h3>
+
+    <!-- <div class="container">
+        <h2 class="text-center"> Carousel slides with captions </h2>
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="c1.jfif" class="d-block w-100" alt="image1">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>First slide </h5>
+                      <p>So we learnt how to add captions to slides.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="c2.jfif" class="d-block w-100" alt="image2">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Second slide </h5>
+                      <p>So we learnt how to add captions to slides.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="c3.jfif" class="d-block w-100" alt="image3">
+                    <div class="carousel-caption d-none d-md-block ">
+                      <h5>Third slide </h5>
+                      <p>So we learnt how to add captions to slides.</p>
+                    </div>
+                </div>
+            </div>	
+        </div>
+     </div> -->
+
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+
+      <div class="carousel-inner">
+          {% for new in news %}
+
+          <a class="carousel-item {% if new.id == 0 %}active{% endif %}"
+             href="/new?new_id={{ new.id }}">
+            <div class="d-block w-100"
+            style="height: 400px;
+            width: 100%;
+            display: block;
+            background: linear-gradient(0deg, rgba(0,0,0,.4), rgba(0,0,0,.4)), url(/{{ new.image_url }});
+            background-position: center;
+            background-size: cover"></div>
+            <div class="carousel-caption">
+              <h3>{{ new.title }}</h3>
+            </div>
+          </a>
+
+          {% endfor %}
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+       <span class="carousel-control-next-icon" aria-hidden="true"></span>
+       <span class="visually-hidden"></span>
+      </button>
+    </div>
+
+    </div>
 {% endblock %}

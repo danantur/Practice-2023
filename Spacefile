@@ -6,4 +6,3 @@ micros:
     engine: python3.9
     primary: true
     public: true
-    dev: uvicorn main:app

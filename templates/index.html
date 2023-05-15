@@ -5,18 +5,32 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="static/css/bootstrap.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="static/css/styles.css">
     <style>
       .text-center.border-bottom {
+        position: relative;
+        display: flex;
+        flex-flow: column;
         background: linear-gradient(0deg, rgba(255, 255, 255, .5), rgba(255, 255, 255, .5)), url(static/images/pattern.svg);
       }
 
-      .text-center.border-bottom a {
+      .text-center.border-bottom > a {
+        margin-top: .1rem;
+        left: 50%;
+        margin-left: -75px;
         width: fit-content;
-        margin: 0 auto;
+        position: absolute;
+      }
+
+      .text-center.border-bottom > div.line {
+        margin: 3.5rem 0;
+        height: 50px;
         background-color: white;
-        padding: 1rem 2rem;
+        border: solid 1px #d1d1d1;
       }
 
       .content {
@@ -28,8 +42,11 @@
 </head>
 <body>
   <div class="text-center border-bottom">
-    <a class="navbar-brand d-block" href="#">
-      <img src="/static/images/logo.svg" height="100" />
+    <div class="line d-block">
+      
+    </div>
+    <a class="navbar-brand d-block" href="/">
+      <img src="/static/images/logo.svg" height="150" />
     </a>
   </div>
   <nav class="navbar navbar-expand-sm navbar-dark p-3" id="headerNav">
@@ -58,9 +75,7 @@
   </nav>
   </div>
   <section class="content d-flex justify-content-center">
-    <div class="container">
-      {% block content %}{% endblock %}
-    </div>
+    {% block content %}{% endblock %}
   </section>
   <div class="container-fluid footer" style="background-color:#ffdebb;">
 
@@ -106,9 +121,9 @@
       <div class="col-xs-12 col-sm-6 col-md-3" >
         <ul>
           <li class="col-heading">Партнёры</li>
-          <li><a href="#">Год педагога и наставника</a></li>
-          <li><a href="#">Официальный информационный портал ЕГЭ</a></li>
-          <li><a href="#">Минпросвещения РФ</a></li>
+          <li><a href="https://docs.edu.gov.ru/document/26ba12611bfc19a49fd3afee9d45e0a0/download/5007/">Год педагога и наставника</a></li>
+          <li><a href="https://checkege.rustest.ru/">Официальный информационный портал ЕГЭ</a></li>
+          <li><a href="https://edu.gov.ru/">Минпросвещения РФ</a></li>
         </ul>
       </div>
     </div>
@@ -123,23 +138,21 @@
     </div>
 
   </div>
-
   <script>
-  window.onscroll = function() {scrollFunction()};
+    window.onscroll = function() {scrollFunction()};
 
-  function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      document.getElementById("to-top").style.display = "block";
-    } else {
-      document.getElementById("to-top").style.display = "none";
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("to-top").style.display = "block";
+      } else {
+        document.getElementById("to-top").style.display = "none";
+      }
     }
-  }
 
-  function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  }
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
   </script>
-  <script src="static/js/bootstrap.js"></script>
 </body>
 </html>

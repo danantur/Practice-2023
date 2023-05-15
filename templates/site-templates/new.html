@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>{{ new.title }}</h2>
+    <img src="{{ new.image_url }}" style="">
+    {{ new.content|safe }}
+    <p class="date-time">{{ new.date }}</p>
+</div>
+{% endblock %}

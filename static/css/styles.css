@@ -1,5 +1,24 @@
 html, body {
-    min-height: 140vh;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #F28713 #9D5506;
+}
+
+*::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+}
+*::-webkit-scrollbar-track {
+    background: #9D5506;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: #F28713;
+    border-radius: 5px;
+    border: 3px solid #9D5506;
 }
 
 body {
@@ -25,17 +44,58 @@ body {
 
 .content h2, .content h3 {
     text-align: center;
-    padding-bottom: 25px;
+    margin-bottom: 25px;
+}
+
+.content h3 {
+    margin: 50px 0;
 }
 
 .content > div{
     margin: 15px;
-    padding: 30px 50px;
+    padding: 50px 50px;
     background-color: white;
     flex: 1;
 
     border-radius: 15px;
     border: solid #9D5506;
+}
+
+.offer {
+    padding: 300px 7%;
+    display: flex;
+    flex-flow: column;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+
+    background: linear-gradient(0deg, rgba(0,0,0,.5), rgba(0,0,0,.5)), url(/static/images/school.jpg);
+    background-position: center;
+    background-size: cover;
+    
+    color: white;
+}
+
+.offer p {
+    font-weight: 600;
+}
+
+.main-content h3:before {
+    content: "";
+    width: 150px;
+    height: 5px;
+    margin-top: 5px;
+    position: absolute;
+    z-index: -1;
+    background-color: #69360023;
+}
+
+.main-content h3 {
+    z-index: 10;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
 }
 
 .content li {
@@ -49,8 +109,20 @@ body {
 }
 
 .content h4 {
-    background-color: #ffdcb6; 
+    background-color: #ffdcb6;
     padding: 10px 15px;
+}
+
+.content h4 a {
+    color: #444444;
+}
+
+.content h4 a:hover {
+    color: #999;
+}
+
+.content img {
+    max-width: 100%;
 }
 
 .footer ul { list-style: none; }
