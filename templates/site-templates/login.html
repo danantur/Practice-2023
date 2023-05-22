@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+{% block title %}Вход{% endblock %}
+{% block content %}
+
+    <h2>Вход</h2>
+
+    <form class="row g-2" method="post">
+
+        <div class="col-md-12">
+            <label for="username" class="form-label">Логин</label>
+            <input type="text" class="form-control" name="username" id="username" required>
+        </div>
+        <div class="col-md-10">
+            <label for="password" class="form-label">Пароль</label>
+            <input type="password" class="form-control" name="password" id="password" required>
+        </div>
+        <div class="col-md-2">
+            <label class="form-label">ㅤ</label>
+            <input class="btn btn-primary form-control" type="submit" value="Войти">
+        </div>
+
+        <div id="error" class="alert alert-danger col-md-12 mt-3 mb-0" role="alert">
+            <h5 class="alert-heading">Ошибка!</h5>
+            Неправильный логин или пароль.
+        </div>
+    </form>
+
+{% endblock %}

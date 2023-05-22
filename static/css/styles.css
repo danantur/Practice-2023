@@ -21,6 +21,14 @@ html, body {
     border: 3px solid #9D5506;
 }
 
+a {
+    color: #F28713;
+}
+
+a:hover {
+    color: #9D5506;
+}
+
 body {
     display: flex;
     flex-flow: column;
@@ -51,11 +59,9 @@ body {
     margin: 50px 0;
 }
 
-.content > div{
-    margin: 15px;
-    padding: 50px 50px;
+.content > div {
+    height: fit-content;
     background-color: white;
-    flex: 1;
 
     border-radius: 15px;
     border: solid #9D5506;
@@ -80,7 +86,7 @@ body {
     font-weight: 600;
 }
 
-.main-content h3:before {
+h3.lined:before {
     content: "";
     width: 150px;
     height: 5px;
@@ -90,7 +96,7 @@ body {
     background-color: #69360023;
 }
 
-.main-content h3 {
+h3.lined {
     z-index: 10;
     display: flex;
     position: relative;
@@ -131,8 +137,9 @@ color: rgb(99, 99, 99);
 text-decoration: none;
 line-height: 1.8;
 }
-.footer ul>li>a:hover,
-a:hover{
+
+.footer a:hover,
+nav a:hover{
 color: #ff6600;
 font-weight: 500;
 }
@@ -195,4 +202,12 @@ list-style-type:square;
     .nav-item {
         margin: auto 0;
     }
+}
+
+#error {
+    display: none;
+}
+
+#error:target {
+    display: block;
 }

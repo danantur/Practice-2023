@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+{% block title %}Профиль{% endblock %}
+{% block content %}
+
+    <h2>Профиль</h2>
+
+    <div class="row g-2">
+        <h5 class="col-md-2">ФИО:</h5>
+        <h5 class="col-md-10">{{ request.state.user.initials }}</h5>
+        <h5 class="col-md-2">Возраст:</h5>
+        <h5 class="col-md-10">{{ request.state.user.age }}</h5>
+        <h5 class="col-md-2">Класс:</h5>
+        <h5 class="col-md-10">{{ request.state.user.class }}</h5>
+    </div>
+
+    <h3 class="lined">Учителя</h3>
+
+    {% if teachers %}
+    <ul id="light-slider">
+      {% for teacher in teachers %}
+      <li>
+        <div class="card" style="width: 10rem;">
+          <img style="height:100px" src="static/images/teachers/{{ teacher.image_url }}" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">{{ teacher.initials }}</h5>
+            <p class="card-text">Предмет: {{ teacher.study }}</p>
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+        $("#light-slider").lightSlider({loop: true});
+    });
+  </script>
+
+{% endblock %}
